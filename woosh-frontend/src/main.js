@@ -28,6 +28,8 @@ const unprotected = [
 router.beforeEach(async (to, from) => {
     const session = await getSession()
 
+    // Nprogress.start()
+
     console.log(session)
 
     if(session === null && !unprotected.includes(to.path)) {
@@ -38,7 +40,10 @@ router.beforeEach(async (to, from) => {
         return { path : '/' }
     }
 
+})
 
+router.afterEach((to, from) => {
+    // Nprogress.done()
 })
 
 createApp(App)
