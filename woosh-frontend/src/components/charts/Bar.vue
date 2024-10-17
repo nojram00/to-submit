@@ -5,8 +5,6 @@
             :options="chartOptions"
             :data="chartData"
         />
-
-        {{ data.October }}
     </div>
 </template>
 <script setup>

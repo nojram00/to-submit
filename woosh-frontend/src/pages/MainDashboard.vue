@@ -3,8 +3,8 @@
         <Header />
         <div class="flex">
             <Sidebar />
-            <main class="">
-                <center v-if="info.isLoading" class="w-[100vw] my-3">
+            <main class="flex-1">
+                <center v-if="info.isLoading" class="w-full my-3">
                     <span class="loading loading-spinner loading-lg"></span>
                 </center>
                 <div class="h-screen w-full flex flex-col gap-5 p-5" v-else>

@@ -37,6 +37,8 @@ Route::middleware('auth:sanctum')->group(function() {
 
         Route::delete('product/{product}', 'destroy');
 
+        Route::patch('product/{product}', 'update');
+
     });
 
     Route::post('/logout', [UserController::class, 'logout']);

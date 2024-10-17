@@ -16,6 +16,10 @@ const routes = [
     {
         path : '/create-product',
         component : () => import('./pages/CreateProducts.vue')
+    },
+    {
+        path : '/products/:productid',
+        component : () => import('./pages/UpdateProduct.vue')
     }
 ]
 

@@ -50,9 +50,26 @@ class ProductsController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Product $product)
     {
-        //
+        $data = $request->input();
+
+        $updated = $product->update([
+            'name' => $data['name'],
+            'category' => $data['category'],
+            'description' => $data['description'],
+            'datetime' => Carbon::parse($data['datetime'])->format('Y-m-d H:i:s')
+        ]);
+
+        if($updated) {
+            return \response()->json([
+                'message' => 'Update Success!'
+            ], 200);
+        }
+
+        return \response()->json([
+            'message' => 'Update Failed!'
+        ], 500);
     }
 
     /**

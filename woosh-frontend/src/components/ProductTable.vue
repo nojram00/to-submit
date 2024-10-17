@@ -20,7 +20,7 @@
                             <div class="inline-flex gap-3">
                                 <button @click="execute('delete' ,product)">Delete</button>
                                 <button @click="execute('view' ,product)">View</button>
-                                <!-- <button @click="execute('delete' ,product.id)">Delete</button> -->
+                                <button @click="execute('update' ,product)">Update</button>
                             </div>
                         </td>
                     </tr>
@@ -116,8 +116,9 @@ const prevBtnUrl = ref("")
 const page = ref()
 const isLoading = ref(true)
 const prod_id = ref()
-const description = ref("")
+const description = ref("(No description available)")
 const name = ref("")
+
 
 const fetchData = async (url) => {
     try {
@@ -151,8 +152,13 @@ const execute = (action, item) => {
             break;
         case 'view':
             name.value = item.name
-            description.value = item.description
+
+            description.value = item.description !== null ? item.description : "(No description available)";
+
             description_modal.showModal()
+            break;
+        case 'update':
+            router.push({ path : `/products/${item.id}` })
             break;
 
     }
@@ -179,10 +185,6 @@ const deleteData = async (id) => {
 
 const reload = () => {
     fetchData("http://127.0.0.1:8000/api/products")
-}
-
-const updateData = () => {
-
 }
 
 defineProps({
