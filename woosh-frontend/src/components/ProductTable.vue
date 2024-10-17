@@ -120,7 +120,6 @@ const description = ref("")
 const name = ref("")
 
 const fetchData = async (url) => {
-    console.log(url)
     try {
         // const link = url === null ? "http://127.0.0.1:8000/api/products" : url
 
@@ -202,6 +201,9 @@ onMounted(() => {
 })
 
 const nextBtn = () => {
+    if(isLoading === false){
+        isLoading = true
+    }
     fetchData(nextBtnUrl.value)
 }
 
