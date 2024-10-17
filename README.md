@@ -1,5 +1,5 @@
 # To start the backend follow these steps:
-- open the woosh directory
+- open the `woosh` directory
 - run `composer update` to install dependecies and modules
 - run `php artisan serve` to run the server
 
